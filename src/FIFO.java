@@ -1,9 +1,9 @@
 
 public class FIFO {
-	public static void fifo(int[] ref){
+	public static void fifo(int[] ref, int framesize){
 		int pagefaults = 0;
-		int[] presence = new int[100];
-		int[] buf = new int[3]; //second dimension == age
+		boolean[] available = new boolean[100];
+		int[] buf = new int[framesize]; //second dimension == age
 		for(int i = 0; i < buf.length; i++){
 			buf[i] = -1;
 		}
@@ -12,25 +12,33 @@ public class FIFO {
 			
 			if(buf[j] == -1){
 				pagefaults++;
+				System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
 				buf[j] = ref[i];
-				presence[ref[i]] = 1;
+				available[ref[i]] = true;
 			    j++;
+			    if(j > framesize-1) j = 0;
 			}
 			
-			if(buf[j] != ref[i] && presence[ref[i]] != 1){
+			else if(buf[j] != ref[i] && available[ref[i]] != true){
 				pagefaults++;
-				presence[buf[j]] = 0;
+				available[buf[j]] = false;
+				System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
 				buf[j] = ref[i];
-				presence[ref[i]] = 1;
+				available[ref[i]] = true;
 			    j++;
+			    if(j > framesize-1) j = 0;
 			}
-			if(j == 2) j = 0;
+			
+			else{
+				System.out.println("Nothing change");
+			}
+			
 		}
-		System.out.println(pagefaults);
+		System.out.println("Page Faults: " + pagefaults);
 	}
 	
 	public static void main(String[] args){
-		int[] refString = {1,2,3,2,1,5,2,1,6,2,5,6,3,1,3,6,1,2,4,3};
-		fifo(refString);
+		int[] refString = {1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};
+		fifo(refString,4);
 	}
 }

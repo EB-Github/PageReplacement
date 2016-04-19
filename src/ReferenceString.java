@@ -20,6 +20,19 @@ public class ReferenceString {
 		return arrReferenceString;	
 	}
 	
+	public static void analyzeString(int[] a, int range){
+		int[] b = new int[range];
+		for(int i = 0; i < a.length ; i++){
+			b[a[i]]++;
+		}
+		for(int i = 0; i<b.length; i++){
+			System.out.print(a[i] +",");
+		}
+		for(int i = 0; i<b.length; i++){
+			System.out.println(i + ": " + b[i] +" ");
+		}
+	}
+	
 	/**
 	 * Returns an Integer between 0-9 that is different than the integer provided via input
 	 * @param lastInt
