@@ -11,10 +11,10 @@ public class OPT {
 		int[] mem = new int[framesize];
 		boolean emptymem = true;
 		Arrays.fill(mem, -1);
-		Integer[] reference = IntStream.of(ref).boxed().toArray(Integer[]::new); //Creates Integer[] out of int[]
+		Integer[] reference = IntStream.of(ref).boxed().toArray(Integer[]::new);
 		int k = 0;
 		for (int i = 0; i < ref.length; i++){
-			System.out.println(Arrays.toString(mem) + "  " + i);
+			//System.out.println(Arrays.toString(mem) + "  " + i); //Debug
 			int j = i;
 			if (!IntStream.of(mem).anyMatch(x -> x == reference[j])){
 				pagefaults++;
