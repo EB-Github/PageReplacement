@@ -1,20 +1,33 @@
+
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 public class ArrayStats {
-	public int findMean(int[] arr){
-		int mean = IntStream.of(arr).sum();
+	public Double findMean(int[] arr){
+		int temp = IntStream.of(arr).sum();
+		Double mean = (double)(temp)/arr.length;
 		return mean;
 	}
 	
-	public int findVar(int[] arr){
-		int mean = findMean(arr);
-		int var = 0;
+	public Double findVar(int[] arr){
+		Double mean = findMean(arr);
+		Double var = 0.0;
 		for (int i = 0; i < arr.length; i++){
-			var += 
+			var += (arr[i]-mean)*(arr[i]-mean);
 		}
-		return 0;
+		var = var/arr.length;
+		return var;
 	}
 	
-	public int findVar(int[] arr, int mean){
-		return 0;
+	public Double findVar(int[] arr, Double mean){
+		Double var = 0.0;
+		for (int i = 0; i < arr.length; i++){
+			var += (arr[i]-mean)*(arr[i]-mean);
+		}
+		return 0.0;
+	}
+	
+	public Double findStdDev(int[] arr){
+		Double stddev = Math.sqrt(findVar(arr));
+		return stddev;
 	}
 }
