@@ -12,7 +12,7 @@ public class FIFO {
 			
 			if(buf[j] == -1){
 				pagefaults++;
-				System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
+				//System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
 				buf[j] = ref[i];
 				available[ref[i]] = true;
 			    j++;
@@ -22,7 +22,7 @@ public class FIFO {
 			else if(buf[j] != ref[i] && available[ref[i]] != true){
 				pagefaults++;
 				available[buf[j]] = false;
-				System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
+				//System.out.println("Setting frame: " + (j+1) + " to: " + ref[i]);
 				buf[j] = ref[i];
 				available[ref[i]] = true;
 			    j++;
@@ -30,7 +30,7 @@ public class FIFO {
 			}
 			
 			else{
-				System.out.println("Nothing change");
+				//System.out.println("Nothing change");
 			}
 			
 		}

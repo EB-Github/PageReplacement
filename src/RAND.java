@@ -22,7 +22,7 @@ public class RAND {
 				pagefaults++;
 				if (emptymem) {
 					if (mem[k] == -1){
-						System.out.println("Setting frame: " + (k+1) + " to: " + reference[i]);
+//						/System.out.println("Setting frame: " + (k+1) + " to: " + reference[i]);
 						mem[k]=reference[i];
 						k++;
 						if (k >= framesize) emptymem = false;
@@ -30,7 +30,7 @@ public class RAND {
 				}
 				else{
 					int temp = ran.nextInt(framesize);
-					System.out.println("Setting frame: " + (temp+1) + " to: " + reference[i]);
+					//System.out.println("Setting frame: " + (temp+1) + " to: " + reference[i]);
 					mem[temp]=reference[i];
 				}
 			}

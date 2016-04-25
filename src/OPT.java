@@ -20,7 +20,7 @@ public class OPT {
 				pagefaults++;
 				if (emptymem) {
 					if (mem[k] == -1){
-						System.out.println("Setting frame: " + (k+1) + " to: " + reference[i]);
+						//System.out.println("Setting frame: " + (k+1) + " to: " + reference[i]);
 						mem[k]=reference[i];
 						k++;
 						if (k >= framesize) emptymem = false;
@@ -40,7 +40,7 @@ public class OPT {
 							distance = temp;
 						}
 					}
-					System.out.println("Setting frame: " + (furthest+1) + " to: " + reference[i]);
+					//System.out.println("Setting frame: " + (furthest+1) + " to: " + reference[i]);
 					mem[furthest]=reference[i];
 				}
 			}
