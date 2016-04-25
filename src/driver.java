@@ -28,21 +28,21 @@ public class driver {
 		RAND.random(c, 3);
 		
 		
-		FileWriter fw = new FileWriter("d.txt");
+		FileWriter fw = new FileWriter("g.txt");
 
 	    for (int i = 0; i < a.length; i++) {
 	      fw.write(a[i] + ", ");
 	    }
 	    fw.close();
 	    
-	    fw = new FileWriter("e.txt");
+	    fw = new FileWriter("h.txt");
 
 	    for (int i = 0; i < b.length; i++) {
 	      fw.write(b[i] + ", ");
 	    }
 	    fw.close();
 	    
-	    fw = new FileWriter("f.txt");
+	    fw = new FileWriter("i.txt");
 
 	    for (int i = 0; i < c.length; i++) {
 	      fw.write(c[i] + ", ");

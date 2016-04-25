@@ -26,9 +26,6 @@ public class ReferenceString {
 			b[a[i]]++;
 		}
 		for(int i = 0; i<b.length; i++){
-			System.out.print(a[i] +",");
-		}
-		for(int i = 0; i<b.length; i++){
 			System.out.println(i + ": " + b[i] +" ");
 		}
 	}
